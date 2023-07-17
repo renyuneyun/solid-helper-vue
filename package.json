@@ -1,0 +1,50 @@
+{
+  "name": "solid-helper-vue",
+  "version": "0.1.0",
+  "description": "A helper library for developing SoLiD (Social Linked Data) under Vuejs",
+  "main": "./dist/solid-helper-gh.umd.js",
+  "module": "./dist/solid-helper-gh.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/solid-helper-gh.mjs",
+      "require": "./dist/solid-helper-gh.umd.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "serve": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renyuneyun/solid-helper-vue.git"
+  },
+  "keywords": [
+    "SoLiD",
+    "vue",
+    "vue3"
+  ],
+  "author": "Rui Zhao (renyuneyun)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/renyuneyun/solid-helper-vue/issues"
+  },
+  "homepage": "https://github.com/renyuneyun/solid-helper-vue#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@inrupt/solid-client-authn-browser": "^1.16.0",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "pinia": "^2.1.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^3.0.0-beta.1",
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.4.2"
+  }
+}
