@@ -1,6 +1,6 @@
 {
   "name": "solid-helper-vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A helper library for developing SoLiD (Social Linked Data) under Vuejs",
   "main": "./dist/solid-helper-gh.umd.js",
   "module": "./dist/solid-helper-gh.mjs",
