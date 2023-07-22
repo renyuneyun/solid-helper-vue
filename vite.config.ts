@@ -10,7 +10,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "SolidHelperVue",
-      fileName: "solid-helper-gh",
+      fileName: "index",
     },
     rollupOptions: {
       external: ["vue", "pinia", "@inrupt/solid-client-authn-browser"],
