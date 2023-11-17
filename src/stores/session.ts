@@ -11,7 +11,10 @@ export const useSessionStore = defineStore('session', {
   },
 
   actions: {
-    async login(solidIdentityProvider: string, redirectUrl: string) {
+    async login(solidIdentityProvider: string, redirectUrl?: string) {
+      if (!redirectUrl) {
+        redirectUrl = window.location.origin + import.meta.env.BASE_URL;
+      }
       await this.session.login({
           oidcIssuer: solidIdentityProvider,
           clientName: "Inrupt tutorial client app",
@@ -19,7 +22,7 @@ export const useSessionStore = defineStore('session', {
       });
     },
 
-    async handleRedirectAfterLogin(redirectUrl: string) {
+    async handleRedirectAfterLogin(redirectUrl?: string, restorePreviousSession?: boolean) {
       this.session.onLogin(() => {
         this.webid = this.session.info.webId!;
         this.isLoggedIn = true;
@@ -42,7 +45,7 @@ export const useSessionStore = defineStore('session', {
 
       await this.session.handleIncomingRedirect({
         url: redirectUrl,
-        restorePreviousSession: true,
+        restorePreviousSession: restorePreviousSession,
       });
     },
 
