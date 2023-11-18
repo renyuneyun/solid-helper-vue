@@ -11,10 +11,10 @@ export const useSessionStore = defineStore('session', {
   },
 
   actions: {
-    async login(solidIdentityProvider: string, redirectUrl: string) {
+    async login(solidIdentityProvider: string, redirectUrl: string, clientName: string) {
       await this.session.login({
           oidcIssuer: solidIdentityProvider,
-          clientName: "Inrupt tutorial client app",
+          clientName: clientName || "Vue application",
           redirectUrl: redirectUrl
       });
     },
