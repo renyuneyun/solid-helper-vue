@@ -11,10 +11,7 @@ export const useSessionStore = defineStore('session', {
   },
 
   actions: {
-    async login(solidIdentityProvider: string, redirectUrl?: string) {
-      if (!redirectUrl) {
-        redirectUrl = window.location.origin + import.meta.env.BASE_URL;
-      }
+    async login(solidIdentityProvider: string, redirectUrl: string) {
       await this.session.login({
           oidcIssuer: solidIdentityProvider,
           clientName: "Inrupt tutorial client app",
