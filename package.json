@@ -24,7 +24,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "serve": "vite preview"
+    "docs": "npx typedoc --options typedoc.json"
   },
   "repository": {
     "type": "git",
@@ -48,6 +48,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
+    "typedoc": "^0.25.3",
+    "typedoc-plugin-vue": "^1.1.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
     "vite-plugin-dts": "^3.0.0-beta.1",

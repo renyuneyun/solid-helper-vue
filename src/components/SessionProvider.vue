@@ -27,3 +27,16 @@ provide(KEY.SESSION_INFO, info)
 provide(KEY.LOGIN, sessionStore.login)
 provide(KEY.LOGOUT, logout)
 </script>
+<script lang="ts">
+/**
+ * A *provider* component for session management. Similar to React Context.  
+ * It handles redirect automatically, so remember to insert it early enough.
+ * 
+ * It provides the following dependencies:
+ * - SESSION
+ * - SESSION_INFO
+ * - LOGIN
+ * - LOGOUT
+ */
+export default {};
+</script>
