@@ -1,17 +1,18 @@
 import { defineStore } from 'pinia'
-import { Session } from "@inrupt/solid-client-authn-browser";
+import { ISessionInfo, Session } from "@inrupt/solid-client-authn-browser";
 
 export const useSessionStore = defineStore('session', {
   state: () => {
     return { 
       session: new Session(),
+      info: undefined as ISessionInfo | undefined,
       isLoggedIn: false,
       webid: "",
      }
   },
 
   actions: {
-    async login(solidIdentityProvider: string, redirectUrl: string, clientName: string) {
+    async login(solidIdentityProvider: string, redirectUrl: string, clientName?: string) {
       await this.session.login({
           oidcIssuer: solidIdentityProvider,
           clientName: clientName || "Vue application",
@@ -19,7 +20,7 @@ export const useSessionStore = defineStore('session', {
       });
     },
 
-    async handleRedirectAfterLogin(redirectUrl?: string, restorePreviousSession?: boolean) {
+    async handleRedirectAfterLogin(redirectUrl?: string, restorePreviousSession?: boolean): Promise<ISessionInfo | undefined> {
       this.session.onLogin(() => {
         this.webid = this.session.info.webId!;
         this.isLoggedIn = true;
@@ -40,10 +41,14 @@ export const useSessionStore = defineStore('session', {
         this.isLoggedIn = false;
       })
 
-      await this.session.handleIncomingRedirect({
+      const info = await this.session.handleIncomingRedirect({
         url: redirectUrl,
         restorePreviousSession: restorePreviousSession,
       });
+
+      this.info = info;
+
+      return info;
     },
 
     async logout() {
