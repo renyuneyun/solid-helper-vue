@@ -42,7 +42,9 @@
   },
   "homepage": "https://github.com/renyuneyun/solid-helper-vue#readme",
   "dependencies": {
-    "@inrupt/solid-client-authn-browser": "^1.16.0",
+    "@inrupt/solid-client-authn-browser": "^1.16.0"
+  },
+  "peerDependencies": {
     "pinia": "^2.1.4",
     "vue": "^3.3.4"
   },
